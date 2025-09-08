@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./output.css">
 </head>
-<body>
+<body class="bg-gray-800 w-full h-lvh flex justify-center items-center">
     <!-- planning to use tailwind for css and maybe react for js but will try to learn tailwind for now -->
+     <div id="main" class="w-5/6 h-9/10 rounded-4xl pt-0 pr-10 pb-8 pl-10 flex flex-col">
+
+        <div id="head" class="grow-1 text-white flex justify-center items-center">
+            <div class="flex justify-center items-center bg-gray-600 w-[400px] h-[70px] rounded-4xl">
+                <h1 class="text-5xl">To Do List</h1>
+            </div>
+        </div>
+
+        <div id="content" class="grow-10 border-2 border-white rounded-4xl p-10">
+            <button class="size-80 text-gray-300 bg-gray-500 rounded-3xl text-6xl hover:cursor-pointer hover:opacity-80 active:opacity-50">+</button>
+        </div>
+     </div>
 </body>
 </html>
