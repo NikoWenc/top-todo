@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="box-border">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="./output.css">
 </head>
 <body class="bg-gray-800 w-full h-lvh flex justify-center items-center">
-    <!-- planning to use tailwind for css and maybe react for js but will try to learn tailwind for now -->
-     <div id="main" class="w-5/6 h-9/10 rounded-4xl pt-0 pr-10 pb-8 pl-10 flex flex-col">
+
+     <div id="main" class="w-9/10 h-9/10 rounded-4xl md:px-10 md:pb-7 flex flex-col">
 
         <div id="head" class="grow-1 text-white flex justify-center items-center">
             <div class="flex justify-center items-center bg-gray-600 w-[400px] h-[70px] rounded-4xl">
@@ -16,9 +16,42 @@
             </div>
         </div>
 
-        <div id="content" class="grow-10 border-2 border-white rounded-4xl p-10">
-            <button class="size-80 text-gray-300 bg-gray-500 rounded-3xl text-6xl hover:cursor-pointer hover:opacity-80 active:opacity-50">+</button>
+        <div id="content" class="grow-10 border-2 border-white rounded-4xl p-10 grid grid-cols-1 ">
+
+            <dialog id="inputDialog" class="w-4/10 h-auto px-16 py-7 fixed top-6/12 left-6/12 -translate-1/2 rounded-4xl">
+
+                <form method="dialog" class="flex flex-col gap-5">
+
+                    <label class="text-4xl">
+                        Title:
+                        <input type="text" class="block border-2 border-gray-400 w-full text-2xl">
+                    </label>
+
+                    <label class="text-4xl">
+                        Description:
+                        <input type="text" class="block border-2 border-gray-400 w-full text-2xl overflow-hidden text-ellipsis">
+                    </label>
+
+                    <label class="text-4xl">
+                        Due Date:
+                        <input type="date" class="block border-2 border-gray-400 w-48 text-2xl">
+                    </label>
+                    
+                    <label class="text-4xl">
+                        Urgency:
+                        <div class="flex gap-10 pt-3">
+                            <button class="border-2 border-black focus:bg-green-300 rounded-3xl px-10 py-2">Minor</button>
+                            <button class="border-2 border-black focus:bg-yellow-300 rounded-3xl px-10 py-2">Normal</button>
+                            <button class="border-2 border-black focus:bg-red-300 rounded-3xl px-10 py-2">Urgent</button>
+                        </div>
+                    </label>
+
+                </form>
+            </dialog>
+
+            <button id="addBtn"class="size-60 sm:size-70 text-gray-300 bg-gray-500 rounded-3xl text-6xl mx-auto md:mx-0 hover:cursor-pointer hover:opacity-80 active:opacity-50">+</button>
         </div>
+
      </div>
 </body>
 </html>
