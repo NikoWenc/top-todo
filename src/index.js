@@ -1,4 +1,7 @@
 import "./input.css";
-import inputModal from "./js-configs/inputModal";
+import ocInputModal from "./js-configs/ocInputModal";
+import createToDoCard from "./js-configs/createTodoCard";
+import getFormValues from "./js-configs/getFormValues";
 
-inputModal("#inputDialog", "#addBtn");
+ocInputModal("#inputDialog", "#todo-form", "#new-todo", "#cancelAddToDo");
+
