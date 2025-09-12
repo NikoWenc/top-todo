@@ -1,20 +1,29 @@
 
-export default function getFormValue() {
 
-    const form = document.querySelector('#todo-form');
-    const dialog = document.querySelector('#inputDialog');
-    let formData;
+// export default class GetFormValue {
 
-    form.addEventListener('submit', (e) => {
-            e.preventDefault();
+//     constructor(){
+//         this.form = document.querySelector('#todo-form');
+//         this.dialog = document.querySelector('#inputDialog');
+//         this.formData;
+//     };
 
-            const fd = new FormData(form);
+//     getFormSubmitValues(){
 
-            formData = Array.from(fd);
+//         this.form.addEventListener('submit', (e) => {
+//             e.preventDefault();
 
-            dialog.close();
-            console.log(formData);
-        });
-    
-    form.addEventListener('reset', (e) => dialog.close());
-}
+//             const fd = new FormData(this.form);
+
+//             this.dialog.close();
+//             this.formData = Array.from(fd);
+
+//             return this.formData;
+//         });
+
+//     };
+
+//     getFormData(){
+//         return this.formData;
+//     };
+// };
