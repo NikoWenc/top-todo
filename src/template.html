@@ -18,7 +18,7 @@
         </div>
 
         <!-- content -->
-        <div id="content" class="grow-10 border-2 border-white rounded-4xl p-10 grid grid-cols-1 ">
+        <div id="content" class="grow-10 border-2 border-white rounded-4xl p-10 flex flex-col md:flex md:flex-row md:shrink-0 md:gap-20">
 
             <!-- dialog -->
             <dialog id="inputDialog" class="px-16 py-7 fixed top-6/12 left-6/12 -translate-1/2 rounded-4xl">
@@ -27,22 +27,25 @@
                 <form method="dialog" id="todo-form" class="flex flex-col gap-5">
 
                     <label class="text-4xl" for="title">Title:</label>
-                    <input type="text" name="title" class="block border-2 border-gray-400 w-full text-2xl">
+                    <input required type="text" name="title" class="block border-2 border-gray-400 w-full text-2xl">
                     
                     <label class="text-4xl" for="description">Description:</label>
-                    <input type="text" name="description" class="block border-2 border-gray-400 w-full text-2xl overflow-hidden text-ellipsis">
+                    <input required type="text" name="description" class="block border-2 border-gray-400 w-full text-2xl overflow-hidden text-ellipsis">
                     
                     <label class="text-4xl" for="due-date">Due Date:</label>
                     <input type="date" name="due-date" class="block border-2 border-gray-400 w-48 text-2xl">
                     
                     <div>
                         <label class="text-4xl">Urgency:</label>
-                            <label for="minor">Minor</label>
-                                <input type="radio" name="minor">
-                            <label for="normal">Normal</label>
-                                <input type="radio" name="normal">
-                            <label for="urgent">Urgent</label>
-                                <input type="radio" name="urgent">
+                            <label for="urgency">Minor
+                                <input required type="radio" name="urgency" value="minor">
+                            </label>
+                            <label for="urgency">Normal
+                                <input type="radio" name="urgency" value="normal">
+                            </label>
+                            <label for="urgency">Urgent
+                                <input type="radio" name="urgency" value="urgent">
+                            </label>
                     </div>
 
                     <div class="flex gap-5">

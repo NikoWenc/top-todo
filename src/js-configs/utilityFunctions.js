@@ -1,16 +1,15 @@
 import CreateTodoCard from "./createTodoCard";
 
-export function closeDialog(){
+const form = document.querySelector('#todo-form');
+const dialog = document.querySelector('#inputDialog');
 
-    const form = document.querySelector('#todo-form');
-    const dialog = document.querySelector('#inputDialog');
+export function closeDialog(){
 
     form.addEventListener('reset', (e) => dialog.close());
 };
 
 export function openDialog() {
 
-    const dialog = document.querySelector('#inputDialog');
     const dialogOpenBtn = document.querySelector('#new-todo');
 
     dialogOpenBtn.addEventListener("click", (e) => {
@@ -26,9 +25,6 @@ export function createElements(element){
 
 export function getFormSubmitValues(){
 
-    const form = document.querySelector('#todo-form');
-    const dialog = document.querySelector('#inputDialog');
-    
     let formData;
 
     form.addEventListener('submit', (e) => {
@@ -36,7 +32,7 @@ export function getFormSubmitValues(){
 
         const fd = new FormData(form);
 
-        dialog.close();
+        form.reset();
         formData = Array.from(fd);
 
         const create = new CreateTodoCard(formData);

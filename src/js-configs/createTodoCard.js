@@ -1,4 +1,5 @@
-import { createElements, getFormSubmitValues } from './utilityFunctions';
+
+import { createElements } from './utilityFunctions';
 
 
 export default class CreateTodoCard {
@@ -27,6 +28,21 @@ export default class CreateTodoCard {
         this.newDiv.appendChild(this.description);
         this.newDiv.appendChild(this.dueDate);
         this.newDiv.appendChild(this.priority);
+
+        this.newDiv.classList.add(
+            "size-60",
+            "sm:size-70",
+            "text-white",
+            "bg-gray-500",
+            "rounded-3xl",
+            "hover:cursor-pointer",
+            "hover:opacity-80",
+            "active:opacity-50",
+            "p-10",
+            "flex",
+            "flex-col",
+            "items-center",
+            "gap-5"); 
 
         this.parent.prepend(this.newDiv);
     };
