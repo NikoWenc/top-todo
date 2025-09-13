@@ -18,17 +18,29 @@ export default class CreateTodoCard {
 
     createCard(){
         this.title.textContent = this.form[0][1];
+        this.title.classList.add(
+            "text-center",
+            "border-2",
+            "border-white",
+            "p-3"
+        )
         this.description.textContent = this.form[1][1];
-        this.dueDate.textContent = this.form[2][1];
-        this.priority.textContent = this.form[3][0];
+        this.description.classList.add(
+            "text-xs"
+        )
+        this.dueDate.textContent = `Due Date: ${this.form[2][1]}`;
+        this.dueDate.classList.add(
+            "text-xs"
+        );
+        this.priority.textContent = this.form[3][1];
         this.doneBtn.textContent = 'X';
         this.doneBtn.classList.add(
             "absolute",
-            "text-2xl",
-            "top-3",
-            "right-3",
+            "text-1xl",
+            "top-1",
+            "right-2",
             "bg-gray-600",
-            "size-[50px]",
+            "size-[35px]",
             "rounded-[50%]",
         )
 
@@ -72,11 +84,13 @@ export default class CreateTodoCard {
             "hover:cursor-pointer",
             "hover:opacity-80",
             "active:opacity-50",
-            "p-10",
+            "pt-13",
+            "px-10",
             "flex",
             "flex-col",
             "items-center",
-            "gap-5"); 
+            "gap-5"
+        ); 
 
         this.parent.prepend(this.newDiv);
 

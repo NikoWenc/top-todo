@@ -11,7 +11,6 @@ export default class CreateTodoList {
         this.listContent = document.querySelector('#list-content');
         this.addList = document.querySelector('#add-list');
         this.list = createElements('ol');
-
     };
 
     addNewTodo(){
@@ -51,6 +50,7 @@ export default class CreateTodoList {
         this.addNewTodo();
 
         this.dialog.showModal();
+        
     };
 
 };
