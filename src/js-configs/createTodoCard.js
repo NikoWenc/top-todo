@@ -1,5 +1,5 @@
 
-import { createElements } from './utilityFunctions';
+import { createElements, priorityClassToggle } from './utilityFunctions';
 import CreateTodoList from "./createTodoList";
 
 
@@ -22,7 +22,8 @@ export default class CreateTodoCard {
             "text-center",
             "border-2",
             "border-white",
-            "p-3"
+            "p-3",
+            "w-[100%]"
         )
         this.description.textContent = this.form[1][1];
         this.description.classList.add(
@@ -32,12 +33,15 @@ export default class CreateTodoCard {
         this.dueDate.classList.add(
             "text-xs"
         );
-        this.priority.textContent = this.form[3][1];
+        this.priority.textContent = this.form[3][1].toUpperCase();
+
+        priorityClassToggle(this.priority, this.priority.textContent);
+
         this.doneBtn.textContent = 'X';
         this.doneBtn.classList.add(
             "absolute",
             "text-1xl",
-            "top-1",
+            "top-2",
             "right-2",
             "bg-gray-600",
             "size-[35px]",

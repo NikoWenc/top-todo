@@ -4,5 +4,3 @@ import { openDialog, closeDialog, getFormSubmitValues } from "./js-configs/utili
 openDialog();
 closeDialog();
 getFormSubmitValues();
-
-

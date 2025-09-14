@@ -14,7 +14,6 @@ export function openDialog() {
     const dialogOpenBtn = document.querySelector('#new-todo');
 
     dialogOpenBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
 
         dialog.showModal();
     });
@@ -41,3 +40,10 @@ export function getFormSubmitValues(){
         create.createCard();
     });
 };
+
+export function priorityClassToggle(element, textContent){
+
+    if (textContent.toLowerCase() === 'minor') element.classList.add('text-yellow-400');
+    if (textContent.toLowerCase() === 'normal') element.classList.add('text-green-400');
+    if (textContent.toLowerCase() === 'urgent') element.classList.add('text-red-400');
+}
