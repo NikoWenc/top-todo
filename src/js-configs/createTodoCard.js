@@ -60,11 +60,12 @@ export default class CreateTodoCard {
     }
 
     todoCardListener(element, title){
+        
+        const todoList = new CreateTodoList(title);
+        
         element.addEventListener('click', (e) => {
             e.stopPropagation();
 
-            const todoList = new CreateTodoList(title);
-    
             todoList.createList();
         });
     }
