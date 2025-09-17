@@ -35,6 +35,12 @@ export function getFormSubmitValues(){
         form.reset();
         const formData = Array.from(fd);
 
+        // test for local storage use - will continue tomorrow
+        sessionStorage.setItem('1', JSON.stringify(formData));
+        console.log(sessionStorage);
+        const test = JSON.parse(sessionStorage.getItem('1'));
+        console.log(test);
+
         const create = new CreateTodoCard(formData);
 
         create.createCard();

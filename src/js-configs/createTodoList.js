@@ -67,10 +67,6 @@ export default class CreateTodoList {
         });
     };
 
-    createDialog(){
-
-    }
-
     createList(){
 
         this.dialog.setAttribute('closedby', 'any');
