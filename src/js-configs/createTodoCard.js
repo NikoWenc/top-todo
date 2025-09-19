@@ -5,15 +5,16 @@ import CreateTodoList from "./createTodoList";
 
 export default class CreateTodoCard {
     
-    constructor(form){
+    constructor(storageKey){
         this.parent = document.querySelector('#content');
-        this.form = form;
+        this.storageKey = storageKey;
+        this.form = JSON.parse(localStorage.getItem(this.storageKey));
         this.newDiv = createElements('div');
         this.title = createElements('h1');
         this.description = createElements('p');
         this.dueDate = createElements('p');
         this.priority = createElements('p');
-        this.doneBtn = createElements('button');
+        this.delBtn = createElements('button');
     };
 
     createCard(){
@@ -37,8 +38,8 @@ export default class CreateTodoCard {
 
         priorityClassToggle(this.priority, this.priority.textContent);
 
-        this.doneBtn.textContent = 'X';
-        this.doneBtn.classList.add(
+        this.delBtn.textContent = 'X';
+        this.delBtn.classList.add(
             "absolute",
             "text-1xl",
             "top-2",
@@ -52,10 +53,11 @@ export default class CreateTodoCard {
     };
 
     doneBtnListener(){
-        this.doneBtn.addEventListener('click', (e) => {
+        this.delBtn.addEventListener('click', (e) => {
             e.stopPropagation();
 
             this.parent.removeChild(this.newDiv);
+            localStorage.removeItem(JSON.stringify(this.storageKey));
         })
     }
 
@@ -75,7 +77,7 @@ export default class CreateTodoCard {
         this.newDiv.appendChild(this.description);
         this.newDiv.appendChild(this.dueDate);
         this.newDiv.appendChild(this.priority);
-        this.newDiv.appendChild(this.doneBtn);
+        this.newDiv.appendChild(this.delBtn);
 
         this.todoCardListener(this.newDiv, this.title.textContent);
 

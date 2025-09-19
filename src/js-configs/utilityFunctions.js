@@ -27,6 +27,19 @@ export function createElements(element){
 // get form values
 export function getFormSubmitValues(){
 
+    let storageKey = localStorage.length + 1;
+
+    if (!localStorage.length == 0) {
+        // 
+        for (let i = 1; i <= localStorage.length; i++ ) {
+
+            const create = new CreateTodoCard(i);
+
+            create.createCard();
+
+        };
+    };
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -36,15 +49,16 @@ export function getFormSubmitValues(){
         const formData = Array.from(fd);
 
         // test for local storage use - will continue tomorrow
-        sessionStorage.setItem('1', JSON.stringify(formData));
-        console.log(sessionStorage);
-        const test = JSON.parse(sessionStorage.getItem('1'));
-        console.log(test);
+        localStorage.setItem(JSON.stringify(storageKey), JSON.stringify(formData));
 
-        const create = new CreateTodoCard(formData);
+        // pass storageKey to parse data
+        const create = new CreateTodoCard(storageKey);
 
         create.createCard();
+
+        return storageKey++;
     });
+
 };
 
 export function priorityClassToggle(element, textContent){
