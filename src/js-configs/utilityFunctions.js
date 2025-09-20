@@ -3,11 +3,13 @@ import CreateTodoCard from "./createTodoCard";
 const form = document.querySelector('#todo-form');
 const dialog = document.querySelector('#inputDialog');
 
+
 // Dialog eventlisteners
 export function closeDialog(){
 
     form.addEventListener('reset', (e) => dialog.close());
 };
+
 
 export function openDialog() {
 
@@ -19,23 +21,25 @@ export function openDialog() {
     });
 };
 
+
 // create ele
 export function createElements(element){
     return document.createElement(element);
-}
+};
+
 
 // get form values
 export function getFormSubmitValues(){
 
-    let storageKey = localStorage.length + 1;
+    let storageKey = localStorage.length + 1; // to track todo card index in storage
 
     if (!localStorage.length == 0) {
-        // 
+        // create cards if LocalStorage has data
         for (let i = 1; i <= localStorage.length; i++ ) {
 
-            const create = new CreateTodoCard(i);
+            const card = new CreateTodoCard(i); // create new instance
 
-            create.createCard();
+            card.createCard(); // create card in the UI
 
         };
     };
@@ -43,24 +47,26 @@ export function getFormSubmitValues(){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const fd = new FormData(form);
+        const fd = new FormData(form); // get the form data when submitted
 
-        form.reset();
-        const formData = Array.from(fd);
+        form.reset(); // reset form every submit
 
-        // test for local storage use - will continue tomorrow
+        const formData = Array.from(fd); // convert to arr for easy iteration
+
+        // save data to local storage
         localStorage.setItem(JSON.stringify(storageKey), JSON.stringify(formData));
 
         // pass storageKey to parse data
-        const create = new CreateTodoCard(storageKey);
+        const card = new CreateTodoCard(storageKey);
 
-        create.createCard();
+        card.createCard();
 
-        return storageKey++;
+        return storageKey++; //increment every card created
     });
 
 };
 
+// change color depending on choice
 export function priorityClassToggle(element, textContent){
 
     if (textContent.toLowerCase() === 'minor') element.classList.add('text-yellow-400');

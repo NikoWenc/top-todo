@@ -16,6 +16,7 @@ export default class CreateTodoList {
         this.body = document.querySelector('body');
     };
 
+
     addNewTodo(){
 
         this.addList.addEventListener('click', () => {
@@ -67,6 +68,7 @@ export default class CreateTodoList {
         });
     };
 
+
     createList(){
 
         this.dialog.setAttribute('closedby', 'any');
@@ -116,5 +118,4 @@ export default class CreateTodoList {
         this.dialog.showModal();
         
     };
-
 };

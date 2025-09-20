@@ -7,8 +7,8 @@ export default class CreateTodoCard {
     
     constructor(storageKey){
         this.parent = document.querySelector('#content');
-        this.storageKey = storageKey;
-        this.form = JSON.parse(localStorage.getItem(this.storageKey));
+        this.storageKey = storageKey; // unique storage key for todocard instance
+        this.form = JSON.parse(localStorage.getItem(this.storageKey)); // get arr of values from storage
         this.newDiv = createElements('div');
         this.title = createElements('h1');
         this.description = createElements('p');
@@ -17,6 +17,7 @@ export default class CreateTodoCard {
         this.delBtn = createElements('button');
     };
 
+    // create todocard on UI
     createCard(){
         this.title.textContent = this.form[0][1];
         this.title.classList.add(
@@ -52,6 +53,7 @@ export default class CreateTodoCard {
         this.appendToDo();
     };
 
+
     doneBtnListener(){
         this.delBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -59,7 +61,8 @@ export default class CreateTodoCard {
             this.parent.removeChild(this.newDiv);
             localStorage.removeItem(JSON.stringify(this.storageKey));
         })
-    }
+    };
+
 
     todoCardListener(element, title){
         
@@ -70,8 +73,9 @@ export default class CreateTodoCard {
 
             todoList.createList();
         });
-    }
+    };
 
+    // append newDiv / todocard to UI
     appendToDo(){
         this.newDiv.appendChild(this.title);
         this.newDiv.appendChild(this.description);
@@ -79,6 +83,7 @@ export default class CreateTodoCard {
         this.newDiv.appendChild(this.priority);
         this.newDiv.appendChild(this.delBtn);
 
+        // add listener to todocard to open todolist modal
         this.todoCardListener(this.newDiv, this.title.textContent);
 
         this.newDiv.classList.add(
@@ -99,6 +104,7 @@ export default class CreateTodoCard {
             "gap-5"
         ); 
 
+        // prepend to append new div as first child
         this.parent.prepend(this.newDiv);
 
         this.doneBtnListener();
