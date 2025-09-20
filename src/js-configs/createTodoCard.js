@@ -54,7 +54,7 @@ export default class CreateTodoCard {
     };
 
 
-    doneBtnListener(){
+    delBtnListener(){
         this.delBtn.addEventListener('click', (e) => {
             e.stopPropagation();
 
@@ -107,7 +107,7 @@ export default class CreateTodoCard {
         // prepend to append new div as first child
         this.parent.prepend(this.newDiv);
 
-        this.doneBtnListener();
+        this.delBtnListener();
     };
 
 }
